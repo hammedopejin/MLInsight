@@ -11,7 +11,7 @@ import SwiftUI
 struct MLInsightApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }

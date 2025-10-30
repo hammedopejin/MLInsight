@@ -1,0 +1,22 @@
+# Xcode
+DerivedData/
+*.xcuserstate
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# SwiftPM
+.build/
+Packages/
+
+# ML model artifacts
+*.mlmodelc
+*.mlmodel
+*.coreml
+
+# Assets
+MLInsight/Assets/SampleImages/
+
+# Misc
+.DS_Store
+*.zip
