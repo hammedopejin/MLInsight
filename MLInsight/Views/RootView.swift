@@ -19,6 +19,11 @@ struct RootView: View {
                 .tabItem {
                     Label("Sentiment", systemImage: "text.bubble")
                 }
+
+            AudioAnalyzerView()
+                .tabItem {
+                    Label("Audio", systemImage: "waveform")
+                }
         }
     }
 }

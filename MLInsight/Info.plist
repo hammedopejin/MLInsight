@@ -7,6 +7,15 @@
 
     <key>NSPhotoLibraryUsageDescription</key>
     <string>We use your photo library to classify selected images using Core ML.</string>
+    
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>We use speech recognition to transcribe audio files.</string>
+
+    <key>NSMicrophoneUsageDescription</key>
+    <string>We need access to your microphone to record audio for analysis.</string>
+
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>We use speech recognition to transcribe your audio recordings.</string>
 
     <key>CFBundleIdentifier</key>
     <string>com.blackmagic.MLInsight</string>

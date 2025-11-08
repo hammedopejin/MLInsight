@@ -18,14 +18,25 @@ struct SentimentView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            TextField("Enter text to analyze", text: $inputText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+            Text("Sentiment Analyzer")
+                .font(.title2)
+                .bold()
+
+            TextEditor(text: $inputText)
+                .padding(8)
+                .frame(minHeight: 150)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.4), lineWidth: 1)
+                )
                 .focused($isFocused)
+                .background(Color(.systemBackground))
+                .cornerRadius(8)
 
             Button("Analyze Sentiment") {
                 runAnalysis()
             }
+            .buttonStyle(.borderedProminent)
             .disabled(inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
 
             if let result = result {
@@ -35,6 +46,7 @@ struct SentimentView: View {
                     Text(String(format: "Score: %.2f", result.score))
                         .foregroundColor(.gray)
                 }
+                .padding(.top, 10)
             }
 
             Spacer()
@@ -63,3 +75,4 @@ struct SentimentView: View {
         }
     }
 }
+

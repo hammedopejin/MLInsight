@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A15DB17C2EBEB09300442C62 /* AudioAnalysisPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A15DB17B2EBEB09300442C62 /* AudioAnalysisPackage */; };
 		A16B2EC12EB2D9D6000F6D7B /* MobileNetV2Package in Frameworks */ = {isa = PBXBuildFile; productRef = A16B2EC02EB2D9D6000F6D7B /* MobileNetV2Package */; };
 		A198E9322EB2ED840035C56A /* SentimentAnalysisPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A198E9312EB2ED840035C56A /* SentimentAnalysisPackage */; };
 		A1BA227A2EB2FE5800EC5EB5 /* MobileNetV2Package in Frameworks */ = {isa = PBXBuildFile; productRef = A16B2EBE2EB2D95B000F6D7B /* MobileNetV2Package */; };
@@ -72,6 +73,7 @@
 			files = (
 				A1BA227A2EB2FE5800EC5EB5 /* MobileNetV2Package in Frameworks */,
 				A198E9322EB2ED840035C56A /* SentimentAnalysisPackage in Frameworks */,
+				A15DB17C2EBEB09300442C62 /* AudioAnalysisPackage in Frameworks */,
 				A16B2EC12EB2D9D6000F6D7B /* MobileNetV2Package in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +139,7 @@
 				A16B2EBE2EB2D95B000F6D7B /* MobileNetV2Package */,
 				A16B2EC02EB2D9D6000F6D7B /* MobileNetV2Package */,
 				A198E9312EB2ED840035C56A /* SentimentAnalysisPackage */,
+				A15DB17B2EBEB09300442C62 /* AudioAnalysisPackage */,
 			);
 			productName = MLInsight;
 			productReference = A16B2E932EB2D861000F6D7B /* MLInsight.app */;
@@ -196,6 +199,7 @@
 			packageReferences = (
 				A16B2EBD2EB2D95B000F6D7B /* XCLocalSwiftPackageReference "../MobileNetV2Package" */,
 				A198E9302EB2ED840035C56A /* XCLocalSwiftPackageReference "../SentimentAnalysisPackage" */,
+				A15DB17A2EBEB09300442C62 /* XCLocalSwiftPackageReference "Packages" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A16B2E942EB2D861000F6D7B /* Products */;
@@ -503,6 +507,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		A15DB17A2EBEB09300442C62 /* XCLocalSwiftPackageReference "Packages" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages;
+		};
 		A16B2EBD2EB2D95B000F6D7B /* XCLocalSwiftPackageReference "../MobileNetV2Package" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../MobileNetV2Package;
@@ -514,6 +522,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A15DB17B2EBEB09300442C62 /* AudioAnalysisPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AudioAnalysisPackage;
+		};
 		A16B2EBE2EB2D95B000F6D7B /* MobileNetV2Package */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MobileNetV2Package;

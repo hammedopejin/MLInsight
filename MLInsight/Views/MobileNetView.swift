@@ -15,21 +15,31 @@ struct MobileNetView: View {
 
     var body: some View {
         VStack(spacing: 20) {
+            Text("Image Classifier")
+                .font(.title2)
+                .bold()
+
             if let image = viewModel.inputImage {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
                     .frame(height: 300)
+                    .cornerRadius(12)
             } else {
                 Rectangle()
                     .fill(Color.gray.opacity(0.2))
                     .frame(height: 300)
-                    .overlay(Text("No Image Selected").foregroundColor(.gray))
+                    .overlay(
+                        Text("No Image Selected")
+                            .foregroundColor(.gray)
+                    )
+                    .cornerRadius(12)
             }
 
             if let prediction = viewModel.prediction {
                 Text("Prediction: \(prediction)")
                     .font(.headline)
+                    .padding(.top, 8)
             }
 
             HStack(spacing: 20) {
@@ -42,6 +52,9 @@ struct MobileNetView: View {
                 }
                 .disabled(viewModel.inputImage == nil)
             }
+            .buttonStyle(.borderedProminent)
+
+            Spacer()
         }
         .padding()
         .sheet(isPresented: $showImagePicker) {
