@@ -36,10 +36,9 @@ This project demonstrates how to integrate multiple Core ML models into an iOS a
 - Benchmarking utilities for model load and prediction
 - Mock classifiers for CI and test isolation
 
----
-
 ## Project Structure
 
+```text
 MLInsight/
 ├── MLInsight.xcodeproj              # Xcode project file
 ├── README.md                        # Project documentation
