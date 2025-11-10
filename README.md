@@ -116,6 +116,7 @@ MLInsight/
 ---
 
 ## Example Usage
+```swift
 
 let classifier = MobileNetClassifier()
 try classifier.loadModel()
@@ -134,7 +135,7 @@ let transcriber = SpeechTranscriber()
 let transcript = try await transcriber.transcribeAudio(from: audioURL)
 
 try AudioLogWriter().saveLog(predictions: predictions, transcription: transcript)
-
+```
 ---
 
 ## Testing
