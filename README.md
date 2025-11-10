@@ -2,7 +2,7 @@
 
 # MLInsight
 
-MLInsight is a modular, SwiftUI-powered iOS app that performs real-time image classification and text sentiment analysis using Core ML and Apple’s Natural Language framework. It’s built with MVVM and Clean Architecture principles, and each model is wrapped in its own Swift Package for maximum modularity, testability, and reproducibility.
+MLInsight is a modular, SwiftUI-powered iOS app that performs real-time image classification, text sentiment analysis, and audio transcription/classification using Core ML, Natural Language, and SoundAnalysis frameworks. It’s built with MVVM and Clean Architecture principles, and each model is wrapped in its own Swift Package for maximum modularity, testability, and reproducibility.
 
 ---
 
@@ -18,6 +18,9 @@ This project demonstrates how to integrate multiple Core ML models into an iOS a
 - SwiftUI
 - Core ML
 - NaturalLanguage
+- SoundAnalysis
+- Speech
+- AVFoundation
 - Swift Package Manager
 - XCTest
 
@@ -37,7 +40,6 @@ This project demonstrates how to integrate multiple Core ML models into an iOS a
 
 ## Project Structure
 
-```
 MLInsight/
 ├── MLInsight.xcodeproj              # Xcode project file
 ├── README.md                        # Project documentation
@@ -45,7 +47,8 @@ MLInsight/
 ├── MLInsight/                       # App target source code
 │   ├── Views/
 │   │   ├── SentimentView.swift
-│   │   └── ImageClassifierView.swift
+│   │   ├── ImageClassifierView.swift
+│   │   └── AudioAnalyzerView.swift
 │   │
 │   ├── ViewModel/
 │   │   ├── SentimentAnalyzer.swift
@@ -71,15 +74,26 @@ MLInsight/
 │   │   │       └── Benchmark.swift
 │   │   │       └── MockImageClassifier.swift
 │   │
-│   └── SentimentAnalysisPackage/
+│   ├── SentimentAnalysisPackage/
+│   │   ├── Sources/
+│   │   │   └── SentimentAnalysisPackage/
+│   │   │       ├── SentimentResult.swift
+│   │   │       └── SentimentAnalyzer.swift
+│   │   └── Tests/
+│   │       └── SentimentAnalysisPackageTests/
+│   │           └── SentimentAnalysisPackageTests.swift
+│   │
+│   └── AudioAnalysisPackage/
 │       ├── Sources/
-│       │   └── SentimentAnalysisPackage/
-│       │       ├── SentimentResult.swift
-│       │       └── SentimentAnalyzer.swift
+│       │   └── AudioAnalysisPackage/
+│       │       ├── SoundClassifier.swift
+│       │       ├── SpeechTranscriber.swift
+│       │       ├── AudioLogWriter.swift
+│       │       ├── AudioModelError.swift
+│       │       └── SoundPrediction.swift
 │       └── Tests/
-│           └── SentimentAnalysisPackageTests/
-│               └── SentimentAnalysisPackageTests.swift
-```
+│           └── AudioAnalysisPackageTests/
+│               └── AudioLogWriterTests.swift
 
 ---
 
@@ -87,7 +101,11 @@ MLInsight/
 
 - Image classification using MobileNetV2
 - Text sentiment analysis using NLTagger
-- Asynchronous inference for both models
+- Speech-to-text transcription using `SFSpeechRecognizer`
+- Ambient sound classification using `SoundClassifier`
+- Audio recording and playback with live progress UI
+- JSON logging of predictions and transcription
+- Asynchronous inference for all models
 - Modular Swift Packages for each ML task
 - Protocol-based abstraction for testability
 - Benchmarking for model load and prediction latency
@@ -100,7 +118,6 @@ MLInsight/
 
 ## Example Usage
 
-```swift
 let classifier = MobileNetClassifier()
 try classifier.loadModel()
 classifier.predict(buffer: somePixelBuffer) { result in
@@ -110,34 +127,34 @@ classifier.predict(buffer: somePixelBuffer) { result in
 let sentiment = await SentimentAnalyzer().analyzeAsync(text: "I love this app!")
 print(sentiment.category) // .positive
 print(sentiment.score)    // 0.87
-```
+
+let soundClassifier = SoundClassifier()
+let predictions = try await soundClassifier.classifyAudio(from: audioURL)
+
+let transcriber = SpeechTranscriber()
+let transcript = try await transcriber.transcribeAudio(from: audioURL)
+
+try AudioLogWriter().saveLog(predictions: predictions, transcription: transcript)
 
 ---
 
 ## Testing
 
-- XCTest coverage for both packages and app-level wrappers
+- XCTest coverage for all packages and app-level wrappers
 - MockImageClassifier for fast, deterministic tests
 - Benchmark logs for performance tracking
-- Coverage ≥ 60% (run ⌘U in Xcode or use xcrun xccov)
+- Coverage ≥ 60% (run ⌘U in Xcode or use `xcrun xccov`)
+- Unit tests for `AudioLogWriter`, `SoundClassifier`, and `SpeechTranscriber`
 
 ---
 
 ## What I Learned
 
 - How to modularize ML logic using Swift Packages
-- How to run Core ML and NLTagger asynchronously
+- How to run Core ML, NLTagger, and SoundAnalysis asynchronously
 - How to structure an iOS app using MVVM and Clean Architecture
 - How to benchmark and mock ML pipelines
 - How to handle platform availability and input validation
-
----
-
-## Bonus
-
-- LinkedIn post summarizing the project
-- Graceful fallback for unsupported image formats
-- README-grade architecture and documentation
-- CI-ready test suite with mock injection
+- How to manage microphone and speech permissions in iOS
 
 ---
