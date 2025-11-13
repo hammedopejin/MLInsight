@@ -10,7 +10,3 @@ public struct SoundPrediction: Codable, Equatable, Sendable {
         self.confidence = confidence
     }
 }
-
-// SoundAnalysis results are typically sent from an internal queue,
-// so marking this as Sendable helps manage concurrency in the context of the delegate.
-extension SoundPrediction: Sendable {}

@@ -10,6 +10,7 @@
 		A15DB17C2EBEB09300442C62 /* AudioAnalysisPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A15DB17B2EBEB09300442C62 /* AudioAnalysisPackage */; };
 		A16B2EC12EB2D9D6000F6D7B /* MobileNetV2Package in Frameworks */ = {isa = PBXBuildFile; productRef = A16B2EC02EB2D9D6000F6D7B /* MobileNetV2Package */; };
 		A198E9322EB2ED840035C56A /* SentimentAnalysisPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A198E9312EB2ED840035C56A /* SentimentAnalysisPackage */; };
+		A1A5BA3D2EC6608C0038101F /* TranslationPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A1A5BA3C2EC6608C0038101F /* TranslationPackage */; };
 		A1BA227A2EB2FE5800EC5EB5 /* MobileNetV2Package in Frameworks */ = {isa = PBXBuildFile; productRef = A16B2EBE2EB2D95B000F6D7B /* MobileNetV2Package */; };
 		A1BA22A02EB3022000EC5EB5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16D5CCB2EB2F7B1009D1278 /* XCTest.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 			files = (
 				A1BA227A2EB2FE5800EC5EB5 /* MobileNetV2Package in Frameworks */,
 				A198E9322EB2ED840035C56A /* SentimentAnalysisPackage in Frameworks */,
+				A1A5BA3D2EC6608C0038101F /* TranslationPackage in Frameworks */,
 				A15DB17C2EBEB09300442C62 /* AudioAnalysisPackage in Frameworks */,
 				A16B2EC12EB2D9D6000F6D7B /* MobileNetV2Package in Frameworks */,
 			);
@@ -140,6 +142,7 @@
 				A16B2EC02EB2D9D6000F6D7B /* MobileNetV2Package */,
 				A198E9312EB2ED840035C56A /* SentimentAnalysisPackage */,
 				A15DB17B2EBEB09300442C62 /* AudioAnalysisPackage */,
+				A1A5BA3C2EC6608C0038101F /* TranslationPackage */,
 			);
 			productName = MLInsight;
 			productReference = A16B2E932EB2D861000F6D7B /* MLInsight.app */;
@@ -200,6 +203,7 @@
 				A16B2EBD2EB2D95B000F6D7B /* XCLocalSwiftPackageReference "../MobileNetV2Package" */,
 				A198E9302EB2ED840035C56A /* XCLocalSwiftPackageReference "../SentimentAnalysisPackage" */,
 				A15DB17A2EBEB09300442C62 /* XCLocalSwiftPackageReference "Packages" */,
+				A1A5BA3B2EC6608C0038101F /* XCLocalSwiftPackageReference "Packages/TranslationPackage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A16B2E942EB2D861000F6D7B /* Products */;
@@ -519,6 +523,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../SentimentAnalysisPackage;
 		};
+		A1A5BA3B2EC6608C0038101F /* XCLocalSwiftPackageReference "Packages/TranslationPackage" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/TranslationPackage;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -537,6 +545,10 @@
 		A198E9312EB2ED840035C56A /* SentimentAnalysisPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SentimentAnalysisPackage;
+		};
+		A1A5BA3C2EC6608C0038101F /* TranslationPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TranslationPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

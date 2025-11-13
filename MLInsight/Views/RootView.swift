@@ -24,6 +24,11 @@ struct RootView: View {
                 .tabItem {
                     Label("Audio", systemImage: "waveform")
                 }
+
+            TranslationView()
+                .tabItem {
+                    Label("Translate", systemImage: "globe")
+                }
         }
     }
 }
